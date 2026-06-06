@@ -3,7 +3,8 @@ import { Users, Car, ShieldCheck, Briefcase } from 'lucide-react';
 
 export const businessInfo = {
   name: "Progressive Chauffeur Services",
-  logoUrl: "/image_34c563.jpg", // Ensure this image is in your /public folder
+  // logoUrl: "/image_34c563.jpg", // Ensure this image is in your /public folder
+  logoUrl: "", // Ensure this image is in your /public folder
   phones: [
     "+353 87 439 9772",
     "+353 87 133 1516",
@@ -12,6 +13,10 @@ export const businessInfo = {
   ],
   email: "info@progressivechauffeurs.ie",
   googleDescription: "Progressive Chauffeur Services provides premium private transfers, airport transfers, and corporate travel across Ireland. Our elite fleet includes the BMW 5 Series, Mercedes-Benz V-Class (MPV), Audi A6 Black 2023, and Mercedes E-Class.",
+  hotelEmail: {
+    subject: "Premium Private Chauffeur Fleet for Your Guests",
+    body: `Dear Concierge / Guest Services Team,\n\nMy name is [Your Name] from Progressive Chauffeur Services. We are a Dublin-based executive transport provider offering a diverse fleet of luxury vehicles including the Mercedes V-Class, BMW 5 Series, and Audi A6.\n\nWe provide reliable, pristine, and discreet chauffeur services for airport transfers, corporate roadshows, and private day tours.\n\nWe would love to partner with your hotel to ensure your guests receive the highest standard of premium transport during their stay.\n\nKind regards,\nProgressive Chauffeur Services\nContact: +353 87 439 9772\nEmail: info@progressivechauffeurs.ie`
+  }
 };
 
 export const fleet = [

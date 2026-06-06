@@ -8,6 +8,7 @@ export const Footer = () => {
     <footer className="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
+
           <div>
             <h3 className="text-xl font-bold uppercase mb-4">
               Progressive <span className="text-amber-500">Chauffeurs</span>
@@ -27,8 +28,19 @@ export const Footer = () => {
               </a>
             </div>
           </div>
+
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact Dispatch</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">The Fleet</h4>
+            <ul className="space-y-4 text-slate-400 text-sm">
+              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Mercedes-Benz V-Class</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">BMW 5 Series</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Audi A6 Black 2023</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Mercedes E-Class</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-6 text-white">Contact Dispatch</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               {businessInfo.phones.map((p, i) => (
                 <li key={i} className="flex items-center">
@@ -43,6 +55,7 @@ export const Footer = () => {
             </ul>
           </div>
         </div>
+
         <div className="pt-8 border-t border-slate-800 text-center text-slate-500 text-xs">
           <p>&copy; {new Date().getFullYear()} {businessInfo.name}. Fully Licensed & Insured SPSV Operator.</p>
         </div>
