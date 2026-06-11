@@ -3,7 +3,6 @@ import { Users, Car, ShieldCheck, Briefcase } from 'lucide-react';
 
 export const businessInfo = {
   name: "Progressive Chauffeur Services",
-  // logoUrl: "/image_34c563.jpg", // Ensure this image is in your /public folder
   logoUrl: "", // Ensure this image is in your /public folder
   phones: [
     "+353 87 439 9772",
@@ -26,7 +25,11 @@ export const fleet = [
     type: "Business MPV / People Carrier",
     capacity: "6 Passengers",
     desc: "The pinnacle of luxury group travel. Pristine leather executive layout offering unparalleled workspace and relaxation on the move.",
-    images: [{ url: "/image_34b548.jpg", label: "Exterior" }, { url: "/image_34b587.jpg", label: "VIP Cabin" }],
+    images: [
+      { url: "/fleets/Mercedes-V-class-Front.webp", label: "Front" },
+      { url: "/fleets/Mercedes-V-class-Back.webp", label: "Rear" },
+      { url: "/fleets/Mercedes-V-class-Inside.webp", label: "VIP Cabin" }
+    ],
     icon: <Users className="w-5 h-5" />
   },
   {
@@ -35,7 +38,11 @@ export const fleet = [
     type: "Executive Sedan",
     capacity: "4 Passengers",
     desc: "The gold standard for discreet, comfortable executive travel. Equipped with a sporty black leather interior and advanced climate control.",
-    images: [{ url: "/image_34b60a.jpg", label: "Front" }, { url: "/image_34b92d.jpg", label: "Rear" }, { url: "/image_34b96d.jpg", label: "Cabin" }],
+    images: [
+      { url: "/fleets/BMW-Front.webp", label: "Front" },
+      { url: "/fleets/BMW-Back.webp", label: "Rear" },
+      { url: "/fleets/BMW-Inside.webp", label: "Cabin" }
+    ],
     icon: <Car className="w-5 h-5" />
   },
   {
@@ -44,7 +51,11 @@ export const fleet = [
     type: "Premium Sedan",
     capacity: "4 Passengers",
     desc: "An exceptional luxury saloon featuring a rare and breathtaking cream leather cabin design, ideal for high-profile business clients and VIPs.",
-    images: [{ url: "/image_34ba01.jpg", label: "Profile & Interior" }],
+    images: [
+      { url: "/fleets/Mercedes-E-class-Front.webp", label: "Front" },
+      { url: "/fleets/Mercedes-E-class-Black.webp", label: "Rear" },
+      { url: "/fleets/Mercedes-E-class-Inside.webp", label: "Cabin" }
+    ],
     icon: <ShieldCheck className="w-5 h-5" />
   },
   {
@@ -53,7 +64,11 @@ export const fleet = [
     type: "Executive Sedan",
     capacity: "4 Passengers",
     desc: "A stunning, dark-themed sport luxury sedan with deep black contours, modern digital cockpit, and ultra-smooth highway cruising performance.",
-    images: [{ url: "/image_34bd27.jpg", label: "Profile & Interior" }],
+    images: [
+      { url: "/fleets/Audi-A6-Front.webp", label: "Front" },
+      { url: "/fleets/Audi-A6-Back.webp", label: "Rear" },
+      { url: "/fleets/Audi-A6-Inside.webp", label: "Cabin" }
+    ],
     icon: <Briefcase className="w-5 h-5" />
   }
 ];
