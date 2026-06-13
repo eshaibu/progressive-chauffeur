@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
-import { businessInfo } from '@/config/constants';
 import { BrandLogo } from '@/components/ui/BrandLogo';
+import { businessInfo } from '@/config/constants';
 
 const navLinks = [
   { name: 'Services', href: '#services' },

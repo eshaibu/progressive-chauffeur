@@ -1,12 +1,19 @@
-import React from 'react';
-import { ShieldCheck, MessageSquare, Phone } from 'lucide-react';
-import { businessInfo } from '@/config/constants';
+"use client";
+
+import React, { useState } from 'react';
+import { ShieldCheck, MessageSquare, Phone, ChevronDown } from 'lucide-react';
 import { BrandLogo } from '@/components/ui/BrandLogo';
+import { businessInfo } from '@/config/constants';
 
 export const Hero = () => {
+  const [showPhoneList, setShowPhoneList] = useState(false);
+
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 text-white overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
+    // REMOVED overflow-hidden from here so the menu can drop down freely
+    <section className="relative z-20 pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 text-white">
+
+      {/* ADDED overflow-hidden here to keep the background graphics contained */}
+      <div className="absolute inset-0 opacity-20 overflow-hidden">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -18,7 +25,7 @@ export const Hero = () => {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
 
           <div className="lg:col-span-8">
@@ -42,28 +49,40 @@ export const Hero = () => {
                 Book via WhatsApp
               </a>
 
-              <div className="relative group">
-                <button className="w-full inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-lg transition">
+              <div className="relative">
+                <button
+                  onClick={() => setShowPhoneList(!showPhoneList)}
+                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-lg transition"
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Our Dispatch
+                  <ChevronDown className={`ml-2 w-5 h-5 transition-transform ${showPhoneList ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-full bg-white text-slate-900 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto py-2 z-50">
-                  {businessInfo.phones.map((phone, i) => (
-                    <a key={i} href={`tel:${phone.replace(/\s+/g, '')}`} className="block px-4 py-2 hover:bg-amber-50 text-sm font-bold border-b border-slate-100 last:border-0">
-                      {phone}
-                    </a>
-                  ))}
-                </div>
+
+                {showPhoneList && (
+                  <div className="absolute top-full left-0 mt-2 w-full bg-white text-slate-900 rounded-xl shadow-2xl py-2 z-50">
+                    {businessInfo.phones.map((phone, i) => (
+                      <a
+                        key={i}
+                        href={`tel:${phone.replace(/\s+/g, '')}`}
+                        className="block px-4 py-2 hover:bg-amber-50 text-sm font-bold border-b border-slate-100 last:border-0"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
+
             </div>
           </div>
 
           <div className="hidden lg:col-span-4 lg:flex justify-end">
-            <div className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/60 backdrop-blur-md text-center max-w-sm">
+            <div className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/60 backdrop-blur-md text-center max-w-sm flex flex-col items-center">
               <BrandLogo
                 src={businessInfo.logoShieldUrl}
                 showText={false}
-                className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-2xl"
+                className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-2xl mx-auto mb-4 object-contain"
               />
               <h3 className="text-xl font-bold text-white mb-2">Our Quality Standard</h3>
               <p className="text-xs text-slate-400 leading-relaxed">

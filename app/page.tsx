@@ -15,7 +15,7 @@ export default function Home() {
       <FleetShowcase />
       <ServicesGrid />
       <Pricing />
-      <PartnerToolkit />
+      {/*<PartnerToolkit />*/}
       <Footer />
     </main>
   );
