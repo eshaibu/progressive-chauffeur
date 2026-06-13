@@ -24,6 +24,7 @@
 .DS_Store
 *.pem
 .idea
+.wrangler
 
 # debug
 npm-debug.log*

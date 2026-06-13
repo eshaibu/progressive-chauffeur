@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
 import { SocialIcon } from '@/components/ui/SocialIcon';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { businessInfo } from '@/config/constants';
 
 export const Footer = () => {
@@ -10,9 +11,11 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
 
           <div>
-            <h3 className="text-xl font-bold uppercase mb-4">
-              Progressive <span className="text-amber-500">Chauffeurs</span>
-            </h3>
+            {/* Updated BrandLogo usage with subtle backdrop */}
+            <div className="inline-block bg-white/5 p-3 rounded-xl backdrop-blur-sm mb-4 border border-white/5">
+              <BrandLogo src={businessInfo.logoDarkBgUrl} className="h-10 sm:h-14 w-auto" textClassName="text-white"/>
+            </div>
+
             <p className="text-slate-400 text-sm mb-6 leading-relaxed">
               Elite private chauffeur fleet based in Dublin. Specializing in executive transfers and luxury travel for individuals and groups.
             </p>

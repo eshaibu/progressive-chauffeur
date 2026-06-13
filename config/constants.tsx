@@ -3,7 +3,10 @@ import { Users, Car, ShieldCheck, Briefcase } from 'lucide-react';
 
 export const businessInfo = {
   name: "Progressive Chauffeur Services",
-  logoUrl: "", // Ensure this image is in your /public folder
+  // logoUrl: "", // Ensure this image is in your /public folder
+  logoUrl: "/progressive_chauffeur_logo.png",
+  logoDarkBgUrl: "/progressive_chauffeur_logo_dark.png",
+  logoShieldUrl: "/progressive_chauffeur_shield.png",
   phones: [
     "+353 87 439 9772",
     "+353 87 133 1516",

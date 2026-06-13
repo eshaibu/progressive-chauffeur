@@ -61,8 +61,9 @@ export const Hero = () => {
           <div className="hidden lg:col-span-4 lg:flex justify-end">
             <div className="bg-slate-800/40 p-8 rounded-3xl border border-slate-700/60 backdrop-blur-md text-center max-w-sm">
               <BrandLogo
-                src={businessInfo.logoUrl}
-                className="h-40 w-auto mx-auto object-contain rounded-xl mb-6 shadow-xl"
+                src={businessInfo.logoShieldUrl}
+                showText={false}
+                className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-2xl"
               />
               <h3 className="text-xl font-bold text-white mb-2">Our Quality Standard</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
