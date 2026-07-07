@@ -6,6 +6,7 @@ import { BrandLogo } from '@/components/ui/BrandLogo';
 import { businessInfo } from '@/config/constants';
 
 const navLinks = [
+  { name: 'Home', href: '#hero' },
   { name: 'Services', href: '#services' },
   { name: 'Our Fleet', href: '#fleet' },
   { name: 'Pricing', href: '#pricing' },

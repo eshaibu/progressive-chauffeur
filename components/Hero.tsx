@@ -9,10 +9,8 @@ export const Hero = () => {
   const [showPhoneList, setShowPhoneList] = useState(false);
 
   return (
-    // REMOVED overflow-hidden from here so the menu can drop down freely
-    <section className="relative z-20 pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 text-white">
+    <section id="hero" className="relative z-20 pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 text-white">
 
-      {/* ADDED overflow-hidden here to keep the background graphics contained */}
       <div className="absolute inset-0 opacity-20 overflow-hidden">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>

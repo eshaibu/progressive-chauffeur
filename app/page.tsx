@@ -2,9 +2,8 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { FleetShowcase } from "@/components/FleetShowcase";
-import { Pricing } from "@/components/Pricing";
-import { PartnerToolkit } from "@/components/PartnerToolkit";
 import { Footer } from "@/components/Footer";
+import { AgreedFares } from "@/components/AgreedFares";
 
 
 export default function Home() {
@@ -14,8 +13,8 @@ export default function Home() {
       <Hero />
       <FleetShowcase />
       <ServicesGrid />
-      <Pricing />
-      {/*<PartnerToolkit />*/}
+      {/* <Pricing /> - Old transparent pricing commented out */}
+      <AgreedFares />
       <Footer />
     </main>
   );
