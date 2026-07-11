@@ -1,26 +1,10 @@
-"use client";
-
-import React, { useState } from 'react';
-import { ShieldCheck, MessageSquare, Phone, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { ShieldCheck, MessageSquare, Phone } from 'lucide-react';
 import { BrandLogo } from '@/components/ui/BrandLogo';
+import { DispatchDropdown } from '@/components/ui/DispatchDropdown';
 import { businessInfo } from '@/config/constants';
 
 export const Hero = () => {
-  // State for both dropdowns
-  const [showWhatsapp, setShowWhatsapp] = useState(false);
-  const [showPhone, setShowPhone] = useState(false);
-
-  // Toggle handlers that also close the other menu if it's open
-  const toggleWhatsapp = () => {
-    setShowWhatsapp(!showWhatsapp);
-    if (showPhone) setShowPhone(false);
-  };
-
-  const togglePhone = () => {
-    setShowPhone(!showPhone);
-    if (showWhatsapp) setShowWhatsapp(false);
-  };
-
   return (
     <section id="hero" className="relative z-20 pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-900 text-white">
 
@@ -53,65 +37,25 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
+              <DispatchDropdown
+                type="whatsapp"
+                label="Book via WhatsApp"
+                icon={<MessageSquare className="w-5 h-5 mr-2" />}
+                wrapperClassName="w-full sm:w-auto"
+                buttonClassName="w-full inline-flex items-center justify-center px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition shadow-lg whitespace-nowrap"
+                chevronClassName="w-5 h-5"
+                dropdownClassName="left-0 w-full sm:w-72"
+              />
 
-              {/* WhatsApp Click-Based Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={toggleWhatsapp}
-                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition shadow-lg"
-                >
-                  <MessageSquare className="w-5 h-5 mr-2" />
-                  Book via WhatsApp
-                  <ChevronDown className={`ml-2 w-5 h-5 transition-transform duration-200 ${showWhatsapp ? 'rotate-180' : ''}`} />
-                </button>
-
-                {showWhatsapp && (
-                  <div className="absolute top-full left-0 mt-2 w-full bg-white text-slate-900 rounded-xl shadow-2xl py-2 z-50">
-                    <p className="text-[10px] font-bold text-slate-400 px-4 pb-2 border-b border-slate-100 uppercase tracking-widest">Message Driver Directly:</p>
-                    {businessInfo.dispatch.map((item, i) => (
-                      <a
-                        key={i}
-                        href={`https://wa.me/${item.phone.replace(/\s+/g, '')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-4 py-2 hover:bg-amber-50 text-sm font-bold border-b border-slate-100 last:border-0"
-                      >
-                        <span className="text-xs text-slate-500 block font-normal">{item.name}</span>
-                        {item.phone}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Call Dispatch Click-Based Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={togglePhone}
-                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-lg transition"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Fleet Owners
-                  <ChevronDown className={`ml-2 w-5 h-5 transition-transform duration-200 ${showPhone ? 'rotate-180' : ''}`} />
-                </button>
-
-                {showPhone && (
-                  <div className="absolute top-full left-0 mt-2 w-full bg-white text-slate-900 rounded-xl shadow-2xl py-2 z-50">
-                    <p className="text-[10px] font-bold text-slate-400 px-4 pb-2 border-b border-slate-100 uppercase tracking-widest">Call Driver Directly:</p>
-                    {businessInfo.dispatch.map((item, i) => (
-                      <a
-                        key={i}
-                        href={`tel:${item.phone.replace(/\s+/g, '')}`}
-                        className="block px-4 py-2 hover:bg-amber-50 text-sm font-bold border-b border-slate-100 last:border-0"
-                      >
-                        <span className="text-xs text-slate-500 block font-normal">{item.name}</span>
-                        {item.phone}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-
+              <DispatchDropdown
+                type="phone"
+                label="Call Fleet Owners"
+                icon={<Phone className="w-5 h-5 mr-2" />}
+                wrapperClassName="w-full sm:w-auto"
+                buttonClassName="w-full inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-lg transition whitespace-nowrap"
+                chevronClassName="w-5 h-5"
+                dropdownClassName="left-0 w-full sm:w-72"
+              />
             </div>
           </div>
 

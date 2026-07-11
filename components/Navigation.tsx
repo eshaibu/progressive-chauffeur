@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { BrandLogo } from '@/components/ui/BrandLogo';
+import { DispatchDropdown } from '@/components/ui/DispatchDropdown';
 import { businessInfo } from '@/config/constants';
 
 const navLinks = [
@@ -14,7 +15,6 @@ const navLinks = [
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showPhoneList, setShowPhoneList] = useState(false);
 
   return (
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
@@ -35,37 +35,14 @@ export const Navigation = () => {
               </a>
             ))}
 
-            <div className="relative">
-              <button
-                onClick={() => setShowPhoneList(!showPhoneList)}
-                className="flex items-center text-sm font-medium bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-md"
-              >
-                <Phone className="w-4 h-4 mr-2 text-amber-500" />
-                Contact Us
-                <ChevronDown className={`ml-2 w-4 h-4 transition-transform ${showPhoneList ? 'rotate-180' : ''}`} />
-              </button>
-
-              {showPhoneList && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-100 py-3 z-[60]">
-                  <div className="px-4 pb-2 mb-2 border-b border-slate-100">
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Connect with Car Owner:</p>
-                  </div>
-                  {businessInfo.dispatch.map((item, i) => (
-                    <a
-                      key={i}
-                      href={`tel:${item.phone.replace(/\s+/g, '')}`}
-                      className="flex flex-col px-4 py-2 hover:bg-slate-50 transition border-b border-slate-50 last:border-0"
-                    >
-                      <span className="text-xs font-bold text-slate-900">{item.name}</span>
-                      <div className="flex items-center text-amber-600 font-semibold text-sm mt-0.5">
-                        <Phone className="w-3.5 h-3.5 mr-2" />
-                        {item.phone}
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
+            <DispatchDropdown
+              type="phone"
+              label="Contact Us"
+              icon={<Phone className="w-4 h-4 mr-2 text-amber-500" />}
+              buttonClassName="flex items-center text-sm font-medium bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-md"
+              dropdownClassName="right-0 w-72"
+              menuLabel="Connect with Car Owner:"
+            />
           </div>
 
           <button className="lg:hidden p-2 text-slate-700" onClick={() => setIsMenuOpen(!isMenuOpen)}>
