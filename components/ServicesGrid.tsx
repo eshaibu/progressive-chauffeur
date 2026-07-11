@@ -6,26 +6,26 @@ export const ServicesGrid = () => {
     {
       title: "Executive Airport Transfers",
       icon: <Plane className="w-8 h-8" />,
-      desc: "Dublin Airport to city & nationwide. Meet & greet service with fixed pricing.",
-      details: ["Meet & Greet", "Flight Tracking", "Fixed Pricing", "Large Fleet Availability"]
+      desc: "Dublin Airport transfers with fixed premium pricing and full flight tracking.",
+      details: ["Punctual Meet & Greet", "Live Flight Tracking", "Direct Passenger Comms", "Comfort Guarantee"]
     },
     {
       title: "Private Day Tours",
       icon: <Map className="w-8 h-8" />,
-      desc: "Bespoke itineraries for Wicklow, Kilkenny, and the Cliffs of Moher.",
-      details: ["V-Class Group Tours", "Local Knowledge", "Custom Routes", "Door-to-Door"]
+      desc: "Scenic day tours across Ireland, tailored to your exact pacing requirements.",
+      details: ["Local Irish Knowledge", "Custom Day-Trip Routes", "V-Class Group Options", "Door-to-Door Service"]
     },
     {
-      title: "Corporate & VIP Hire",
+      title: "Corporate Hire & Roadshows",
       icon: <Briefcase className="w-8 h-8" />,
-      desc: "Discreet service for business meetings. MPV options for team travel.",
-      details: ["Hourly/Daily Rates", "Privacy Guaranteed", "Punctuality First", "Wait & Return"]
+      desc: "Dedicated daily or half-day transport packages for business VIPs.",
+      details: ["Discreet & Reliable Drivers", "Seamless Route Planning", "Pristine Onboard Presentation", "Flexible Stops"]
     },
     {
-      title: "Weddings & Events",
+      title: "Weddings & Celebrations",
       icon: <Heart className="w-8 h-8" />,
-      desc: "Elegant transport for your special day. Fleet options for guests.",
-      details: ["Bridal Car (E-Class)", "Guest MPVs (V-Class)", "Polite Chauffeurs", "Bespoke Ribbons"]
+      desc: "Exquisite transport to frame your special occasions beautifully.",
+      details: ["Immaculate Vehicles", "Polite Professional Dress", "Accurate Route Coordination", "Optional Ribbons"]
     }
   ];
 
@@ -33,7 +33,7 @@ export const ServicesGrid = () => {
     <section id="services" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Premium Services</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Luxury Services</h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto rounded-full"></div>
         </div>
 

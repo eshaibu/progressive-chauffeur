@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { SocialIcon } from '@/components/ui/SocialIcon';
 import { BrandLogo } from '@/components/ui/BrandLogo';
 import { businessInfo } from '@/config/constants';
@@ -32,33 +32,41 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* The Fleet Footer Listing */}
           <div>
             <h4 className="font-bold text-lg mb-6 text-white">The Fleet</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Mercedes-Benz V-Class</a></li>
-              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">BMW 5 Series</a></li>
-              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Audi A6 Black 2023</a></li>
-              <li><a href="#fleet" className="hover:text-amber-500 transition-colors">Mercedes E-Class</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition">Mercedes-Benz V-Class</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition">BMW 5 Series</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition">Audi A6 Black 2023</a></li>
+              <li><a href="#fleet" className="hover:text-amber-500 transition">Mercedes-Benz E-Class</a></li>
             </ul>
           </div>
 
+          {/* Direct Vehicle Bookings */}
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Contact Dispatch</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Direct Vehicle Bookings</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              {businessInfo.phones.map((p, i) => (
-                <li key={i} className="flex items-center">
-                  <Phone className="w-4 h-4 mr-3 text-amber-500" />
-                  <a href={`tel:${p.replace(/\s+/g, '')}`} className="hover:text-white transition">{p}</a>
+              {businessInfo.dispatch.map((item, i) => (
+                <li key={i} className="flex flex-col">
+                  <span className="text-xs text-slate-500">{item.name}</span>
+                  <a href={`tel:${item.phone.replace(/\s+/g, '')}`} className="hover:text-amber-500 transition font-semibold text-white">
+                    {item.phone}
+                  </a>
                 </li>
               ))}
               <li className="flex items-center pt-2">
                 <Mail className="w-4 h-4 mr-3 text-amber-500" />
-                <a href={`mailto:${businessInfo.email}`} className="hover:text-white transition">{businessInfo.email}</a>
+                <a href={`mailto:${businessInfo.email}`} className="hover:text-white transition">
+                  {businessInfo.email}
+                </a>
               </li>
             </ul>
           </div>
+
         </div>
 
+        {/* Copyright */}
         <div className="pt-8 border-t border-slate-800 text-center text-slate-500 text-xs">
           <p>&copy; {new Date().getFullYear()} {businessInfo.name}. Fully Licensed & Insured SPSV Operator.</p>
         </div>

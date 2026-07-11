@@ -34,21 +34,33 @@ export const Navigation = () => {
                 {link.name}
               </a>
             ))}
+
             <div className="relative">
               <button
                 onClick={() => setShowPhoneList(!showPhoneList)}
                 className="flex items-center text-sm font-medium bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-slate-800 transition shadow-md"
               >
-                <Phone className="w-4 h-4 mr-2" />
+                <Phone className="w-4 h-4 mr-2 text-amber-500" />
                 Contact Us
                 <ChevronDown className={`ml-2 w-4 h-4 transition-transform ${showPhoneList ? 'rotate-180' : ''}`} />
               </button>
+
               {showPhoneList && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-slate-100 py-2 z-[60]">
-                  {businessInfo.phones.map((phone, i) => (
-                    <a key={i} href={`tel:${phone}`} className="flex items-center px-4 py-3 hover:bg-slate-50 text-sm font-medium text-slate-700 transition border-b border-slate-50 last:border-0">
-                      <Phone className="w-4 h-4 mr-3 text-amber-600" />
-                      {phone}
+                <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-slate-100 py-3 z-[60]">
+                  <div className="px-4 pb-2 mb-2 border-b border-slate-100">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Connect with Car Owner:</p>
+                  </div>
+                  {businessInfo.dispatch.map((item, i) => (
+                    <a
+                      key={i}
+                      href={`tel:${item.phone.replace(/\s+/g, '')}`}
+                      className="flex flex-col px-4 py-2 hover:bg-slate-50 transition border-b border-slate-50 last:border-0"
+                    >
+                      <span className="text-xs font-bold text-slate-900">{item.name}</span>
+                      <div className="flex items-center text-amber-600 font-semibold text-sm mt-0.5">
+                        <Phone className="w-3.5 h-3.5 mr-2" />
+                        {item.phone}
+                      </div>
                     </a>
                   ))}
                 </div>
@@ -61,6 +73,7 @@ export const Navigation = () => {
           </button>
         </div>
       </div>
+
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t border-slate-100 p-6 space-y-4 shadow-xl">
           {navLinks.map((link) => (
@@ -73,6 +86,18 @@ export const Navigation = () => {
               {link.name}
             </a>
           ))}
+
+          <div className="pt-4 border-t border-slate-100 space-y-3">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Direct Dispatch Contacts:</p>
+            {businessInfo.dispatch.map((item, i) => (
+              <div key={i} className="py-1">
+                <span className="text-xs font-bold text-slate-500 block mb-0.5">{item.name}</span>
+                <a href={`tel:${item.phone.replace(/\s+/g, '')}`} className="flex items-center text-amber-600 font-bold text-base hover:underline">
+                  <Phone className="w-4 h-4 mr-2" /> {item.phone}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </nav>
