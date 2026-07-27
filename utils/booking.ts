@@ -39,26 +39,26 @@ export const createWhatsAppMessage = ({
   notes,
 }: BookingDetails): string => {
   return `
-*🚘 NEW RESERVATION REQUEST*
+*NEW RESERVATION REQUEST*
 
-*Guest Details*
-👤 *Name:* ${guestName}
-✉️ *Email:* ${guestEmail}
-📞 *Phone:* ${guestPhone}
+*GUEST DETAILS*
+*Name:* ${guestName}
+*Email:* ${guestEmail}
+*Phone:* ${guestPhone}
 
-*Reservation Details*
-🚗 *Vehicle:* ${carName}
-🛎️ *Service:* ${service}
-📅 *Date:* ${date}
-🕒 *Time:* ${time}
-👥 *Passengers:* ${passengers}
+*RESERVATION DETAILS*
+*Vehicle:* ${carName}
+*Service:* ${service}
+*Date:* ${date}
+*Time:* ${time}
+*Passengers:* ${passengers}
 
-*Journey*
-📍 *Pickup:* ${pickup}
-🏁 *Drop-off:* ${dropoff}
-${notes ? `\n📝 *Special Request:*\n${notes}` : ""}
+*JOURNEY DETAILS*
+*Pickup:* ${pickup}
+*Drop-off:* ${dropoff}
+${notes ? `\n*SPECIAL REQUEST*\n${notes}` : ""}
 
-━━━━━━━━━━━━━━━━━━━━
+--------------------------------
 _Automated reservation alert_
 _A confirmation was also sent to info@progressivechauffeurs.ie_
 `.trim();
@@ -69,9 +69,8 @@ export const createWhatsAppUrl = (
   message: string,
 ): string => {
   const cleanedPhone = driverPhone.replace(/\D/g, "");
-  const encodedMessage = encodeURIComponent(message);
 
-  return `https://wa.me/${cleanedPhone}?text=${encodedMessage}`;
+  return `https://wa.me/${cleanedPhone}?text=${encodeURIComponent(message)}`;
 };
 
 export const sendBookingEmail = async (
