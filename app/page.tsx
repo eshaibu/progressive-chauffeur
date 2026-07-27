@@ -2,8 +2,9 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { ServicesGrid } from "@/components/ServicesGrid";
 import { FleetShowcase } from "@/components/FleetShowcase";
-import { Footer } from "@/components/Footer";
 import { AgreedFares } from "@/components/AgreedFares";
+import { BookingForm } from "@/components/BookingForm";
+import { Footer } from "@/components/Footer";
 
 
 export default function Home() {
@@ -13,8 +14,8 @@ export default function Home() {
       <Hero />
       <FleetShowcase />
       <ServicesGrid />
-      {/* <Pricing /> - Old transparent pricing commented out */}
       <AgreedFares />
+      <BookingForm />
       <Footer />
     </main>
   );

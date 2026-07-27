@@ -11,7 +11,6 @@ export const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
 
           <div>
-            {/* Updated BrandLogo usage with subtle backdrop */}
             <div className="inline-block bg-white/5 p-3 rounded-xl backdrop-blur-sm mb-4 border border-white/5">
               <BrandLogo src={businessInfo.logoDarkBgUrl} className="h-10 sm:h-14 w-auto" textClassName="text-white"/>
             </div>

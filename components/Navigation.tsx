@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Services', href: '#services' },
   { name: 'Our Fleet', href: '#fleet' },
   { name: 'Pricing', href: '#pricing' },
+  { name: 'Request Booking', href: '#book-form' },
 ];
 
 export const Navigation = () => {

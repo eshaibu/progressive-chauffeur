@@ -92,14 +92,13 @@ export const AgreedFares = () => {
             </div>
 
             <div className="lg:col-span-5 flex justify-start lg:justify-end">
-              <DispatchDropdown
-                type="whatsapp"
-                label="Negotiate Custom Route"
-                icon={<MessageSquare className="w-4 h-4 mr-2" />}
-                wrapperClassName="w-full sm:w-auto"
-                buttonClassName="inline-flex w-full sm:w-auto items-center justify-center px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition"
-                dropdownClassName="right-0 mt-2 w-full sm:w-72"
-              />
+              <a
+                href="#book-form"
+                className="inline-flex w-full sm:w-auto items-center justify-center px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition"
+              >
+                <MessageSquare className="w-4 h-4 mr-2" />
+                Negotiate Custom Route
+              </a>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MessageSquare, Phone } from 'lucide-react';
+import { ShieldCheck, Phone, Calendar } from 'lucide-react';
 import { BrandLogo } from '@/components/ui/BrandLogo';
 import { DispatchDropdown } from '@/components/ui/DispatchDropdown';
 import { businessInfo } from '@/config/constants';
@@ -26,26 +26,24 @@ export const Hero = () => {
           <div className="lg:col-span-8">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-600/20 text-amber-400 text-xs font-bold uppercase tracking-widest mb-6">
               <ShieldCheck className="w-4 h-4" />
-              <span>Premium Fleet • Dublin • Nationwide</span>
+              <span>Executive Transport • Dublin • Nationwide</span>
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
-              Elite Chauffeur & <br/>
-              <span className="text-amber-500 font-serif italic">Fleet</span> Hire
+              Premium Private <br/>
+              <span className="text-amber-500 font-serif italic">Chauffeur</span> Fleet
             </h1>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
-              From pristine executive sedans to luxury multi-passenger carriers, we deliver reliable and discreet transport solutions tailored to elite schedules.
+              Luxury BMW, Mercedes, and Audi executive transport. Experience personal, discreet airport runs, long-distance luxury, and bespoke tours with professional drivers.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <DispatchDropdown
-                type="whatsapp"
-                label="Book via WhatsApp"
-                icon={<MessageSquare className="w-5 h-5 mr-2" />}
-                wrapperClassName="w-full sm:w-auto"
-                buttonClassName="w-full inline-flex items-center justify-center px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition shadow-lg whitespace-nowrap"
-                chevronClassName="w-5 h-5"
-                dropdownClassName="left-0 w-full sm:w-72"
-              />
+              <a
+                href="#book-form"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-lg transition transform hover:-translate-y-1 shadow-lg whitespace-nowrap"
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Request Booking Quote
+              </a>
 
               <DispatchDropdown
                 type="phone"
