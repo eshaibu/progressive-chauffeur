@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Progressive Chauffeur Services',
     description: 'Elite private chauffeur fleet based in Dublin.',
-    url: 'https://progressivechauffeurs.ie',
+    url: 'https://progressivechauffeurs.com',
     siteName: 'Progressive Chauffeur Services',
     locale: 'en_IE',
     type: 'website',

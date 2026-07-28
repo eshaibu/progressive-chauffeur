@@ -13,12 +13,7 @@ export const businessInfo = {
     { name: "Mercedes-Benz E-Class", phone: "+353 89 983 8604", tag: "Cream Leather Interior" },
     { name: "Audi A6 Black 2023", phone: "+353 87 344 3633", tag: "Sport Executive Elegance" }
   ],
-  email: "info@progressivechauffeurs.ie",
-  googleDescription: "Progressive Chauffeur Services provides premium private transfers, airport transfers, and corporate travel across Ireland. Our elite fleet includes the BMW 5 Series, Mercedes-Benz V-Class (MPV), Audi A6 Black 2023, and Mercedes E-Class.",
-  hotelEmail: {
-    subject: "Premium Private Chauffeur Fleet for Your Guests",
-    body: `Dear Concierge / Guest Services Team,\n\nMy name is [Your Name] from Progressive Chauffeur Services. We are a Dublin-based executive transport provider offering a diverse fleet of luxury vehicles including the Mercedes V-Class, BMW 5 Series, and Audi A6.\n\nWe provide reliable, pristine, and discreet chauffeur services for airport transfers, corporate roadshows, and private day tours.\n\nWe would love to partner with your hotel to ensure your guests receive the highest standard of premium transport during their stay.\n\nKind regards,\nProgressive Chauffeur Services\nContact: +353 87 439 9772\nEmail: info@progressivechauffeurs.ie`
-  }
+  email: "info@progressivechauffeurs.com",
 };
 
 export const fleet = [

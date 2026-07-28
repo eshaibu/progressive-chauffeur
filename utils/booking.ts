@@ -1,11 +1,8 @@
-const EMAILJS_SERVICE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+const WEB3FORMS_ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
-const EMAILJS_TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
-
-const EMAILJS_PUBLIC_KEY =
-  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+const WEB3FORMS_ENDPOINT =
+  "https://api.web3forms.com/submit";
 
 export const DEFAULT_DRIVER_PHONE = "+353874399772";
 export const DEFAULT_CAR_NAME = "BMW 5 Series";
@@ -23,6 +20,11 @@ export type BookingDetails = {
   dropoff: string;
   passengers: string;
   notes: string;
+};
+
+type Web3FormsResponse = {
+  success: boolean;
+  message?: string;
 };
 
 export const createWhatsAppMessage = ({
@@ -60,7 +62,7 @@ ${notes ? `\n*SPECIAL REQUEST*\n${notes}` : ""}
 
 --------------------------------
 _Automated reservation alert_
-_A confirmation was also sent to info@progressivechauffeurs.ie_
+_A copy was also sent to progressivechauffeur@gmail.com_
 `.trim();
 };
 
@@ -70,54 +72,70 @@ export const createWhatsAppUrl = (
 ): string => {
   const cleanedPhone = driverPhone.replace(/\D/g, "");
 
-  return `https://wa.me/${cleanedPhone}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${cleanedPhone}?text=${encodeURIComponent(
+    message,
+  )}`;
 };
 
 export const sendBookingEmail = async (
   booking: BookingDetails,
 ): Promise<void> => {
-  // if (
-  //   !EMAILJS_SERVICE_ID ||
-  //   !EMAILJS_TEMPLATE_ID ||
-  //   !EMAILJS_PUBLIC_KEY
-  // ) {
-  //   throw new Error(
-  //     "EmailJS environment variables have not been configured.",
-  //   );
-  // }
-  //
-  // await emailjs.send(
-  //   EMAILJS_SERVICE_ID,
-  //   EMAILJS_TEMPLATE_ID,
-  //   {
-  //     to_email: "info@progressivechauffeurs.ie",
-  //
-  //     driver_phone: booking.driverPhone,
-  //     car_name: booking.carName,
-  //
-  //     guest_name: booking.guestName,
-  //     guest_email: booking.guestEmail,
-  //     guest_phone: booking.guestPhone,
-  //
-  //     booking_service: booking.service,
-  //     booking_date: booking.date,
-  //     booking_time: booking.time,
-  //
-  //     pickup: booking.pickup,
-  //     dropoff: booking.dropoff,
-  //     passengers: booking.passengers,
-  //     notes: booking.notes || "No special requests provided.",
-  //   },
-  //   {
-  //     publicKey: EMAILJS_PUBLIC_KEY,
-  //   },
-  // );
+  if (!WEB3FORMS_ACCESS_KEY) {
+    throw new Error(
+      "Web3Forms access key has not been configured.",
+    );
+  }
+
+  const response = await fetch(WEB3FORMS_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+
+      subject: `New booking request: ${booking.guestName} — ${booking.date}`,
+      from_name: "Progressive Chauffeurs Website",
+
+      email: booking.guestEmail,
+
+      "Guest Name": booking.guestName,
+      "Guest Email": booking.guestEmail,
+      "Guest Phone": booking.guestPhone,
+
+      Vehicle: booking.carName,
+      "Driver Phone": booking.driverPhone,
+      Service: booking.service,
+      "Journey Date": booking.date,
+      "Journey Time": booking.time,
+      Passengers: booking.passengers,
+
+      "Pickup Location": booking.pickup,
+      "Drop-off Location": booking.dropoff,
+
+      "Flight Number / Special Instructions":
+        booking.notes.trim() ||
+        "No special requests provided.",
+    }),
+  });
+
+  const result =
+    (await response.json()) as Web3FormsResponse;
+
+  if (!response.ok || !result.success) {
+    throw new Error(
+      result.message ||
+      "We could not email the booking request.",
+    );
+  }
 };
 
 export const createBookingDispatch = (
   booking: BookingDetails,
 ) => {
-  const whatsappMessage = createWhatsAppMessage(booking);
+  const whatsappMessage =
+    createWhatsAppMessage(booking);
 
   return {
     whatsappMessage,
